@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :installs
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
