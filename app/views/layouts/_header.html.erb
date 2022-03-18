@@ -13,10 +13,31 @@
         <% if customer_signed_in? %>
         <!--顧客ログイン-->
           <li>
+          <%= link_to "マイページ", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
+          <%= link_to "商品一覧", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
+          <%= link_to "カート", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
           </li>
         <% elsif owner_signed_in? %>
         <!--管理者ログイン-->
+          <li>
+          <%= link_to "商品一覧", admin_customers_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
+          <%= link_to "会員一覧", admin_customers_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
+          <%= link_to "注文履歴一覧", admin_customers_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
+          <li>
+          <%= link_to "ジャンル一覧", admin_genres_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+          </li>
           <li>
             <%= link_to "ログアウト", destroy_owner_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
           </li>
