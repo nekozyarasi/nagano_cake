@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+<h2 class="bg-secondary rounded text-white">管理者ログイン</h2>
+</div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+<%= form_with model: @owner, url: owner_session_path do |f| %>
+  <div class="field">
+    メールアドレス
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    パスワード
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= render "owners/shared/links" %>
+</div>
+</nav>
