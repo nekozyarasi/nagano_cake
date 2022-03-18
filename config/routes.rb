@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'customer/items#top'
+
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
