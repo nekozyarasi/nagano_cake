@@ -1,17 +1,43 @@
 <div class="container">
-  <p>
-    ようこそ、ながのCAKEへ！</br>
-    このサイトは、ケーキ販売のECサイトになります。</br>
-    会員でない方も商品の閲覧は出来ますが、</br>
-    購入には会員登録が必要になります。
-  </p>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 d-flex align-items-center justify-content-center">
+      <div class="text-left lead px-4 py-5">
+        <p>
+          ようこそ、ながのCAKEへ！</br>
+          このサイトは、ケーキ販売のECサイトになります。</br>
+          会員でない方も商品の閲覧は出来ますが、</br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <!--新着商品を４つ-->
-  <h2>新着商品</h2>
-  <%= @items.last(4).each do |item| %>
-    <%= item.name %>
-    ¥<%= item.price.to_s(:delimited) %>
-  <% end %>
+
+    <!--新着商品を４つ-->
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-10">
+      <h2>新着商品</h2>
+      <div class="d-inline-flex">
+        <%= @items.last(4).each do |item| %>
+          <div class="col-3">
+            <%= link_to customer_items_path(item.id) do %>
+              <%= image_tag item.item_image, size: "180×150" %>
+            <% end %>
+            <%= item.name %>
+            ¥<%= item.price.to_s(:delimited) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
+
+    <div class="row link">
+      <div class="col text-right mt-3">
+        <%= link_to '全ての商品を見る>', customer_items_path %>
+      </div>
+    </div>
 </div>

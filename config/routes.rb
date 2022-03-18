@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'customer/items#top'
+  get '/about' => 'customer/items#about'
 
   namespace :admin do
     # get 'order_details/update'
