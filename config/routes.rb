@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # のちに削除
-  root to: 'admin/customers#index'
+
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
