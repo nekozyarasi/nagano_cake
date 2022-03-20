@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2022_03_19_030136) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 2022_03_19_030136) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
@@ -64,7 +62,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_030136) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "remember_created_a"
     t.string "family_name"
     t.string "first_name"
     t.string "kana_family_name"

@@ -56,14 +56,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-<<<<<<< HEAD
-gem 'kaminari','~> 1.2.1'
-gem 'kaminari-bootstrap'
-=======
 
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
->>>>>>> origin/develop
+
+gem 'kaminari','~> 1.2.1'
