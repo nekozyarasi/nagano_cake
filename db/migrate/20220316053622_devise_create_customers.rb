@@ -12,8 +12,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_at
-
+      t.datetime :remember_created_a
+    
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
