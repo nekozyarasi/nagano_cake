@@ -5,9 +5,9 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable
   
   
-  # has_many :cart_items, dependent: :destroy
-  # has_many :orders
-  # has_many :ships, dependent: :destroy
+   has_many :cart_items, dependent: :destroy
+   has_many :orders
+   has_many :ships, dependent: :destroy
   
   validates :first_name, presence: true
   validates :family_name, presence: true
