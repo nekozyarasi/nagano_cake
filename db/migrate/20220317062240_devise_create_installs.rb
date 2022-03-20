@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
+class DeviseCreateInstalls < ActiveRecord::Migration[6.1]
   def change
-    create_table :customers do |t|
+    create_table :installs do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -12,8 +12,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_a
-    
+      t.datetime :remember_created_at
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -32,27 +32,13 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      ## 名前を保存するカラム
-      t.string :family_name
-      t.string :first_name
-      t.string :kana_family_name
-      t.string :kana_first_name
-
-      ## 住所情報を保存するカラム
-      t.string :post
-      t.string :address
-      t.string :phone
-
-      ## 退会フラグを保存するカラム
-      t.boolean :is_deleted
-
 
       t.timestamps null: false
     end
 
-    add_index :customers, :email,                unique: true
-    add_index :customers, :reset_password_token, unique: true
-    # add_index :customers, :confirmation_token,   unique: true
-    # add_index :customers, :unlock_token,         unique: true
+    add_index :installs, :email,                unique: true
+    add_index :installs, :reset_password_token, unique: true
+    # add_index :installs, :confirmation_token,   unique: true
+    # add_index :installs, :unlock_token,         unique: true
   end
 end
