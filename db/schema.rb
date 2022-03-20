@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_030136) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_a"
+    t.datetime "remember_created_at"
     t.string "family_name"
     t.string "first_name"
     t.string "kana_family_name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_030136) do
     t.string "post"
     t.string "address"
     t.string "phone"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

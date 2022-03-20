@@ -12,8 +12,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_a
-    
+      t.datetime :remember_created_at
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -44,7 +44,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :phone
 
       ## 退会フラグを保存するカラム
-      t.boolean :is_deleted
+      t.boolean :is_deleted, null: false, default: false
 
 
       t.timestamps null: false
