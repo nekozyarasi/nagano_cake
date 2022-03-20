@@ -6,33 +6,42 @@
         <h2 class="bg-secondary text-white rounded"><%= @customer.family_name %><%= @customer.first_name %>さんの会員情報編集</h2>
       </div>
 
+      <%= form_with model: @customer do |f| %>
       <div>
-        会員ID <%= @customer.id %>
+
+        <%= customer.id %>
       </div>
       <div>
-        氏名 <%= @customer.family_name %><%= @customer.first_name %>
+        <label for="inputName">氏名</label>
+        <%= f.text_field :family_name, autofocus: true, id:"inputName", placeholder:"苗字"%><%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"名前"%>
       </div>
       <div>
-        フリガナ <%= @customer.family_name %><%= @customer.first_name %>
+        <label for="inputKanaName">フリガナ</label>
+        <%= f.text_field :kana_family_name, autofocus: true, id:"inputKanaName", placeholder:"ミョウジ"%><%= f.text_field :kana_first_name, autofocus: true, id:"inputKanaName", placeholder:"ナマエ"%>
       </div>
       <div>
-        郵便番号 <%= @customer.post %>
+        <label for="inputPost">郵便番号</label>
+        <%= f.text_field :post, autofocus: true, id:"inputPost", placeholder:"郵便番号"%>
       </div>
       <div>
-        住所 <%= @customer.address %>
+        <label for="inputAdderss">住所</label>
+        <%= f.text_field :address, autofocus: true, id:"inputAdderss", placeholder:"住所"%>
       </div>
       <div>
-        電話番号 <%= @customer.phone %>
+        <label for="inputPhone">電話番号</label>
+        <%= f.text_field :phone, autofocus: true, id:"inputPhone", placeholder:"電話番号"%>
       </div>
       <div>
-        メールアドレス <%= @customer.email %>
+        <label for="inputEmail">メールアドレス</label>
+        <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス"%>
       </div>
       <div>
-        会員ステータス <%= @customer.is_deleted %>
+        <label for="inputIs_deleted">会員ステータス</label>
       </div>
       <div>
         a
       </div>
+      <% end %>
 
     </div>
   </div>
