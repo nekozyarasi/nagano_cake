@@ -1,42 +1,42 @@
 class Customer::ShipsController < ApplicationController
   def index
-    @ship = Ship.new
+    @address = Adress.new
     @customer = current_customer
-    @ships = @customer.ships.all
+    @address = @customer.address.all
   end
 
   def create
-    @ship = Ship.new(ship_params)
-    @ship.customer_id = current_customer.id
-    if @ship.save
+    @address = Adress.new(ship_params)
+    @address.customer_id = current_customer.id
+    if @address.save
        flash[:notice] = "新しい配送先を登録しました"
        redirect_to customer_ships_path
     else
       @customer = current_customer
-      @ships = @customer.ships.all
+      @addresses = @customer.ships.all
       render index
     end  
   end
 
   def destroy
-    ship = Ship.find(params[:id])
+    ship = Address.find(params[:id])
     ship.destroy
-    if @ship.destroy
+    if @address.destroy
       flash[:notice] = "1件の配送先を削除しました"
       redirect_to edit_customer_ship_path(ships.id)
     end  
   end
 
   def edit
-    @ship = Ship.find(params[:id])
-    if @ship.customer != current_customer
+    @address = Address.find(params[:id])
+    if @address.customer != current_customer
        redirect_to edit_customer_ship_path(ship.id)
     end   
   end
 
   def update
-    @ship = Ship.find(params[:id])
-    if @ship.update(book_params)
+    @address = Address.find(params[:id])
+    if @address.update(book_params)
        flash[:notice]="配送先住所の更新ができました"
        redirect_to edit_customer_ship_path(ship.id)
     else
@@ -48,6 +48,6 @@ class Customer::ShipsController < ApplicationController
   private
 
   def ship_params
-    params.require(:ship).permit(:name, :post, :address)
+    params.require(:address).permit(:name, :post, :address)
   end
 end
