@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if resource == :owner
       new_owner_session_path
     else
-      new_user_session_path
+      root_path
     end
   end
 
