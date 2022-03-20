@@ -1,2 +1,2 @@
-class  < ApplicationRecord
+class Address < ApplicationRecord
 end
