@@ -1,11 +1,21 @@
 class Admin::ItemsController < ApplicationController
-  def index
-  end
 
   def new
+    @item = Item.new
   end
 
   def create
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:notice] = "新商品を登録しました"
+      redirect_to admin_item_path(@item)
+    else
+      render :new
+    end
+  end
+
+  def index
+    @items = Item.all
   end
 
   def show
@@ -15,5 +25,23 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      flash[:success] = "商品内容をを変更しました"
+      redirect_to admin_item_path(@item)
+    else
+      render :edit
+    end
   end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :item_image, :introduction,
+       :genre_id, :price, :is_sale_status)
+  end
+
+  def set_genres
+    @genres = Genre.where(is_valid: true)
+  end
+
 end
