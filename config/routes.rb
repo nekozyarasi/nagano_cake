@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :installs
-  root to:'customer/items#top'
+
+  root to: 'customer/items#top'
+  get '/about' => 'customer/items#about'
+  
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
