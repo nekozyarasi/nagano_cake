@@ -1,12 +1,12 @@
 class Customer::ShipsController < ApplicationController
   def index
-    @address = Adress.new
+    @address = Address.new
     @customer = current_customer
-    @address = @customer.address.all
+    @addresses = @customer.address.all
   end
 
   def create
-    @address = Adress.new(ship_params)
+    @address = Address.new(ship_params)
     @address.customer_id = current_customer.id
     if @address.save
        flash[:notice] = "新しい配送先を登録しました"

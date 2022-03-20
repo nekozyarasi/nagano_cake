@@ -6,7 +6,7 @@
   </div>
   <div class="row"> 
     <table class="table table-borderless table-sm">
-      <%= form_with model: @ships local :true do |f| %>
+      <%= form_with model: @addresses local :true do |f| %>
       <tr>
         <th><%= f.label :post,"郵便番号" %></th>
         <td class="col-7"><%= f.text_field :post, class: "form-controll", placeholder: "123-1234" %></td>
@@ -29,7 +29,7 @@
   </div> 
   <div class="row">
     <dive class ="col-8">
-      <%#= render  %>
+      <%= render "customers/ships/index  %>
     </dive>
   </div>
 </div>
