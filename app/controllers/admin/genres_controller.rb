@@ -18,7 +18,7 @@ class Admin::GenresController < ApplicationController
   end
 
   def show
-    @products = Product.all.all.page(params[:page]).per(10)
+    @items = Item.all.all.page(params[:page]).per(10)
     @genre = Genre.find(params[:id])
     @genres = @genre.items.order(created_at: :desc).all.page(params[:page]).per(5)
   end
