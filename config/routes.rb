@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'customer/items#top'
   get '/about' => 'customer/items#about'
 
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   namespace :customer do
+
     # get 'items/top'
     # get 'items/about'
     # get 'items/index'
