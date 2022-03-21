@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  root to: 'customer/items#top'
+  get '/about' => 'customer/items#about'
+  
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
@@ -26,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   namespace :customer do
+    
     # get 'items/top'
     # get 'items/about'
     # get 'items/index'
