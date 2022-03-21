@@ -5,7 +5,7 @@
           <h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2>
           <div class="d-inline-flex">
             <% @items.each do |item| %>
-              <div class="col-3">
+              <div class="col-4">
                 <%= link_to customer_item_path(item.id) do %>
                   <% if item.item_image.attached? %>
                     <%= image_tag item.item_image, size: "180x180" %>
@@ -19,5 +19,6 @@
             <% end %>
           </div>
         </div>
+        <%= paginate @items %>
     </div>
 </div>
