@@ -1,2 +1,25 @@
-<h1>Customer::Items#show</h1>
-<p>Find me in app/views/customer/items/show.html.erb</p>
+<div class="container">
+  <div class="row mx-5">
+
+    <div class="col-md-8 offset-md-1">
+      <div class="d-flex">
+        <div class="image">
+          <% if @item.item_image.attached? %>
+            <%= image_tag @item.item_image, size: "300x200" %>
+          <% else %>
+            <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "300x200" %>
+          <% end %>
+        </div>
+        <div class="discription ml-3">
+          <div class="h3"><%= @item.name %></div>
+          <div class><%= @item.introduction %></div>
+          <div class="mt-5">
+            <span><h4>¥<%= @item.add_tax_price.to_s(:delimited) %></h4></span>
+            <span>(税込)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
