@@ -2,33 +2,41 @@
   <div class="row">
     <div class="col-lg-8 mx-auto my-3">
 
-      <div class="col-lg-3 text-center ">
-        <h2 class="bg-secondary text-white rounded"><%= customer.family_name %><%= customer.first_name %>さんの会員詳細</h2>
+      <div class="text-center ">
+        <h2 class="bg-secondary text-white rounded"><%= @customer.family_name %><%= @customer.first_name %>さんの会員詳細</h2>
       </div>
 
-      <div>
-        会員ID <%= @customer.id %>
+      <div class="row">
+        <div class="col-lg-4">会員ID</div>
+        <div class="col-lg-8"><%= @customer.id %></div>
       </div>
-      <div>
-        氏名 <%= @customer.family_name %><%= @customer.first_name %>
+      <div class="row">
+        <div class="col-lg-4">氏名</div>
+        <div class="col-lg-8"><%= @customer.family_name %><%= @customer.first_name %></div>
       </div>
-      <div>
-        フリガナ <%= @customer.family_name %><%= @customer.first_name %>
+      <div class="row">
+        <div class="col-lg-4">フリガナ</div>
+        <div class="col-lg-8"><%= @customer.kana_family_name %><%= @customer.kana_first_name %></div>
       </div>
-      <div>
-        郵便番号 <%= @customer.post %>
+      <div class="row">
+        <div class="col-lg-4">郵便番号</div>
+        <div class="col-lg-8"><%= @customer.post %></div>
       </div>
-      <div>
-        住所 <%= @customer.address %>
+      <div class="row">
+        <div class="col-lg-4">住所</div>
+        <div class="col-lg-8"><%= @customer.address %></div>
       </div>
-      <div>
-        電話番号 <%= @customer.phone %>
+      <div class="row">
+        <div class="col-lg-4">電話番号</div>
+        <div class="col-lg-8"><%= @customer.phone %></div>
       </div>
-      <div>
-        メールアドレス <%= @customer.email %>
+      <div class="row">
+        <div class="col-lg-4">メールアドレス</div>
+        <div class="col-lg-8"><%= @customer.email %></div>
       </div>
-      <div>
-        会員ステータス <%= @customer.is_deleted %>
+      <div class="row">
+        <div class="col-lg-4">会員ステータス</div>
+        <div class="col-lg-8 text-success"><%= @customer.is_deleted ? '退会' : '有効' %></div>
       </div>
       <div>
         a
