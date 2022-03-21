@@ -3,7 +3,7 @@ class Item < ApplicationRecord
    belongs_to :genre
 
     def add_tax_price
-        (self.price * 1.10).round
+        (self.price * 1.08).round
     end
 
 	validates :genre_id, :name, :price, presence: true
