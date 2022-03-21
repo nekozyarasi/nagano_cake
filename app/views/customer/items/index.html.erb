@@ -1,2 +1,23 @@
-<h1>Customer::Items#index</h1>
-<p>Find me in app/views/customer/items/index.html.erb</p>
+<div class="container">
+    <div class="row">
+    <div class="col-2"></div>
+        <div class="col-10">
+          <h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2>
+          <div class="d-inline-flex">
+            <% @items.each do |item| %>
+              <div class="col-3">
+                <%= link_to customer_item_path(item.id) do %>
+                  <% if item.item_image.attached? %>
+                    <%= image_tag item.item_image, size: "180x180" %>
+                  <% else %>
+                    <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "180x180" %>
+                  <% end %>
+                <% end %>
+                <%= item.name %></br>
+                <p>¥<%= item.add_tax_price.to_s(:delimited) %>(税込)</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+</div>
