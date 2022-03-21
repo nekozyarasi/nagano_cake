@@ -1,2 +1,52 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<% provide(:title, "商品詳細") %>
+<h2 class="head-line title_h2 text-center">商品詳細</h2>
+<div class="row">
+	<div class="col-12">
+	  <div class="col-xs-4">
+	      <div id="img_field">
+	          <% if @item.item_image.attached? %>
+              <%= image_tag @item.item_image, size: "300x300" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "300x300" %>
+            <% end %>
+	      </div>
+      </div>
+      <div class="col-text-center">
+	      <div class="field">
+					<p>sa
+						商品名　　　　　<%= @item.name %>
+					</p>
+	      </div><br>
+	      <div class="field">
+					<p>
+						商品説明　　　　<%= @item.introduction %>
+					</p><br>
+	      </div>
+	      <div class="field">
+					<p>
+						ジャンル　　　　<%= @item.genre_id %>
+					</p><br>
+	      </div>
+	      <div class="field">
+					<p>
+					  税込価格　　　　<%= @item.add_tax_price.to_s %>
+	        								(<%= @item.price.to_s%>) 円<br>
+						(税抜価格)
+					</p><br>
+	      </div>
+	      <div class="field">
+					<p>
+						販売ステータス
+		        <% if @item.is_sale_status == true %>
+							　<i class="fas fa-bullseye red"></i>販売中
+						<% elsif @item.is_sale_status == false %>
+							　<i class="fas fa-bullseye blue"></i>販売停止中
+						<% end %>
+					</p>
+	      </div>
+		  <div class="actions col-xs-9">
+	      		<%= link_to "編集する", edit_admin_item_path(@item), data: {"turbolinks" => false}, class: "glyphicon glyphicon-pencil btn btn-success pull-right" %>
+      	  </div>
+      	</div>
+    </div>
+</div>

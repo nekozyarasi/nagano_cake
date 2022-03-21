@@ -62,3 +62,5 @@ gem 'bootstrap-will_paginate', '1.0.0'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
+
+gem 'kaminari','~> 1.2.1'
