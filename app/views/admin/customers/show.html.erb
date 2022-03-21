@@ -36,7 +36,11 @@
       </div>
       <div class="row py-2">
         <div class="col-lg-4">会員ステータス</div>
-        <div class="col-lg-8 text-success"><%= @customer.is_deleted ? '退会' : '有効' %></div>
+        <% if @customer.is_deleted == false %>
+          <div class="text-success">有効</div>
+        <% else %>
+          <div class="text-secondary">退会</div>
+        <% end %>
       </div>
       <div class="row py-2">
         <div class="col-lg-4"></div>
