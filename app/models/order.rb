@@ -4,4 +4,8 @@ class Order < ApplicationRecord
 
   has_many :OrderDetails, dependent: :destroy
 
+  def total_count
+    self.order_details.all.sum(:count)
+  end
+
 end
