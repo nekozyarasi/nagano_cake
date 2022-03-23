@@ -1,11 +1,11 @@
 class Order < ApplicationRecord
 
-  belongs_to :Customer
+  belongs_to :customer
 
-  has_many :OrderDetails, dependent: :destroy
+  has_many :orderDetails
 
   def total_count
-    self.order_details.all.sum(:count)
+    self.orderDetails.all.sum(:count)
   end
 
 end
