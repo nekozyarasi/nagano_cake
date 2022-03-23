@@ -1,2 +1,56 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto my-3">
+      <div class="text-center py-3">
+        <h2 class="bg-secondary text-white rounded">注文履歴詳細</h2>
+      </div>
+    </div>
+  </div>
+
+  <!--注文履歴詳細-->
+  <div class="row">
+    <div class="col-lg-8 mx-auto my-3">
+      <div class="row py-2">
+        <div class="col-lg-4">購入者</div>
+        <div class="col-lg-8">
+          <%= link_to admin_customer_path(@order.customer_id) do %>
+
+          <% end %>
+          </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-lg-4">注文日</div>
+        <div class="col-lg-8"><%= @order.created_at %></div>
+      </div>
+      <div class="row py-2">
+        <div class="col-lg-4">配送先</div>
+        <div class="col-lg-8">
+          〒 <%= @order.post %><br/>
+          <%= @order.address %><br/>
+          <%= @order.name %>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-lg-4">支払方法</div>
+        <div class="col-lg-8"><%= @order.payment %></div>
+      </div>
+      <div class="row py-2">
+        <div class="col-lg-4">注文ステータス</div>
+        <div class="col-lg-8">
+          <%= @order.order_status %>
+          <%= link_to "編集する", edit_admin_customer_path(@order.id), class: "btn btn-success mr-5" %>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!--注文詳細-->
+  <div class="row">
+    <div class="col-lg-8 mx-auto my-3">
+    </div>
+  </div>
+
+</div>
