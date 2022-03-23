@@ -39,7 +39,10 @@
         <div class="col-lg-4">注文ステータス</div>
         <div class="col-lg-8">
           <%= @order.order_status %>
-          <%= link_to "編集する", edit_admin_customer_path(@order.id), class: "btn btn-success mr-5" %>
+          <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+            <%= f.select :order_status, Order.order_statuses.keys %>
+            <%= f.submit "更新", class:"btn btn-success btn-sm ml-2" %>
+          <% end %>
         </div>
 
       </div>
