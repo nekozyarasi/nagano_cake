@@ -38,7 +38,6 @@
       <div class="row py-2">
         <div class="col-lg-4">注文ステータス</div>
         <div class="col-lg-8">
-          <%= @order.order_status %>
           <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
             <%= f.select :order_status, Order.order_statuses.keys %>
             <%= f.submit "更新", class:"btn btn-success btn-sm ml-2" %>
@@ -50,7 +49,34 @@
 
   <!--注文詳細-->
   <div class="row">
-    <div class="col-lg-8 mx-auto my-3">
+    <div class="col-lg-10 mx-auto my-3">
+      <div class="row py-2">
+        <div class="col-lg-8">
+
+          <table class="table">
+            <thead class="bg-light">
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+            </thead>
+            <tobody>
+              <% @order_details.each do |order_detail| %>
+                <tr>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.name %></td>
+                </tr>
+              <% end %>
+            </tobody>
+          </table>
+
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
     </div>
   </div>
 
