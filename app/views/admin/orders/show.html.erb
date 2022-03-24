@@ -21,7 +21,7 @@
       </div>
       <div class="row py-2">
         <div class="col-lg-4">注文日</div>
-        <div class="col-lg-8"><%= @order.created_at %></div>
+        <div class="col-lg-8"><%= @order.created_at.to_s(:dateday_jp) %></div>
       </div>
       <div class="row py-2">
         <div class="col-lg-4">配送先</div>
@@ -65,10 +65,15 @@
               <% @order_details.each do |order_detail| %>
                 <tr>
                   <td><%= order_detail.item.name %></td>
-                  <td><%= order_detail.item.name %></td>
-                  <td><%= order_detail.item.name %></td>
-                  <td><%= order_detail.item.name %></td>
-                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
+                  <td><%= order_detail.quantity %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td>
+                    <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
+                      <%= f.select :production_status, OrderDetail.production_statuses.keys %>
+                      <%= f.submit "更新", class:"btn btn-success btn-sm ml-2" %>
+                    <% end %>
+                  </td>
                 </tr>
               <% end %>
             </tobody>
