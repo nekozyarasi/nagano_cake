@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <h3>本当に退会しますか？</h3>
+      <p>適当なメッセージ</p>
+    </div>
+  </div>
+
+  <%= link_to "退会する", customer_withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" } %>
+  <%= link_to "退会しない", customer_customer_path(current_customer) %>
+</div>
