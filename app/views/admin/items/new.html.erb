@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
        <%= f.label :"販売ステータス", class: "col-sm-3 control-label" %>
-       <%= f.select :is_sale_status, [['販売中', true], ['販売停止', false]], prompt: "-- 選択してください --", class: "col-sm-9 is_sale_status" %>
+       <%= f.select :is_sale_status, [['販売中', true], ['販売停止', false]],selected: 2, class: "col-sm-9 is_sale_status" %>
       </div>
         <div class="actions col-xs-7">
   	      <%= f.submit "新規登録", class: "btn btn-primary btn-lg pull-right" %>
