@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  root to: 'customer/items#top'
-  get '/about' => 'customer/items#about'
-  delete '/customer/cart_items/destroy_all' => 'customer/cart_items#all_destroy'
-
   namespace :admin do
     # get 'order_details/update'
     resources :order_details, only: [:update]
@@ -55,7 +51,7 @@ Rails.application.routes.draw do
     # get 'ships/destroy'
     # get 'ships/edit'
     # get 'ships/update'
-    resources :ships, only: [:index, :create, :update, :edit, :destroy]
+    resources :addresses, only: [:index, :create, :update, :edit, :destroy]
     # get 'customers/show'
     # get 'customers/quit'
     # get 'customers/out'

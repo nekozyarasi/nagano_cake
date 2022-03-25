@@ -1,5 +1,6 @@
 class Customer::CustomersController < ApplicationController
   def show
+    
   end
 
   def quit
@@ -13,4 +14,5 @@ class Customer::CustomersController < ApplicationController
 
   def update
   end
+
 end
