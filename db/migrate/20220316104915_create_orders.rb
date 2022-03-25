@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
     create_table :orders do |t|
-      
+
       # 会員ID
       t.integer :customer_id
       # 配送先郵便番号
@@ -17,7 +17,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       # 支払方法
       t.integer :payment
       # 受注ステータス
-      t.integer :order_status
+      t.integer :order_status, null: false, default: 0
 
       t.timestamps
     end

@@ -44,7 +44,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :phone
 
       ## 退会フラグを保存するカラム
-      t.boolean :is_deleted
+      t.boolean :is_deleted, null: false, default: false
 
 
       t.timestamps null: false

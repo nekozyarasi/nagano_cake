@@ -1,2 +1,76 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-lg-8 mx-auto my-3">
+
+      <div class="text-center ">
+        <h2 class="bg-secondary text-white rounded"><%= @customer.family_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+      </div>
+
+      <%= form_with model: @customer, url: admin_customer_path do |f| %>
+      <div class="row py-2">
+        <div class="col-lg-4"><label>会員ID</label></div>
+        <div class="col-lg-8"><%= @customer.id %></div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputName"　class="col-lg-8">氏名</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :family_name, autofocus: true, id:"inputName", placeholder:"苗字", class: "mr-3"%>
+          <%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"名前"%>
+          </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputKanaName">フリガナ</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :kana_family_name, autofocus: true, id:"inputKanaName", placeholder:"ミョウジ", class: "mr-3"%>
+          <%= f.text_field :kana_first_name, autofocus: true, id:"inputKanaName", placeholder:"ナマエ"%>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputPost">郵便番号</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :post, autofocus: true, id:"inputPost", placeholder:"郵便番号"%>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputAdderss">住所</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :address, autofocus: true, id:"inputAdderss", placeholder:"住所", size: 50 %>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputPhone">電話番号</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :phone, autofocus: true, id:"inputPhone", placeholder:"電話番号"%>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputEmail">メールアドレス</label></div>
+        <div class="col-lg-8">
+          <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス"%>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"><label for="inputIs_deleted">会員ステータス</label></div>
+        <div class="col-lg-8">
+          <%= f.radio_button :is_deleted, :false %><%= f.label :is_deleted, "有効", class: "mr-3 text-secondary" %>
+          <%= f.radio_button :is_deleted, :true %><%= f.label :is_deleted, "退会", class: "text-secondary" %>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-lg-4"></div>
+      <div class="col-lg-8 "><%= f.submit "変更を保存", class: "btn btn-success" %></div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
