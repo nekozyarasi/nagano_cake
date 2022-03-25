@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'customer/items#top'
   get '/about' => 'customer/items#about'
+  delete '/customer/cart_items/destroy_all' => 'customer/cart_items#all_destroy'
 
   namespace :admin do
     # get 'order_details/update'
