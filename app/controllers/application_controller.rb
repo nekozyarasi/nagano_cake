@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(Owner)
         admin_orders_path
     else
+
+        customer_customer_path(current_customer)
+
         root_path
+
     end
   end
 
