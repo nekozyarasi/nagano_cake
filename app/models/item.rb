@@ -10,7 +10,7 @@ class Item < ApplicationRecord
         (self.price * 1.08).round
     end
 
-	validates :genre_id, :name, :price, :is_sale_status, presence: true
+	validates :genre_id, :name, :price, presence: true
 	validates :introduction, length: {maximum: 200}
 	validates :price, numericality: { only_integer: true }
 
