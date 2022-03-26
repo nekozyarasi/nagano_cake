@@ -5,7 +5,7 @@ class OrderDetail < ApplicationRecord
 
   validates :quantity, :production_status, presence: true
 
-  enum production_status: {cannot_be_manufactured:0, waiting_for_production:1, production:2, production_completed:3}
+  enum production_status: {製作不可:0, 製作待ち:1, 製作中:2, 製作完了:3}
 
   def amount
     item.add_tax_price * quantity
