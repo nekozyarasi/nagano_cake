@@ -1,65 +1,85 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
+    <div class="row">
 
-    <!--ショップ名ロゴ-->
-    <h1>LOGO</h1>
+      <!--ショップ名ロゴ-->
+      <div class="col-lg-4">
+        <h1>
+          <%= link_to root_path do %>
+            <%= image_tag 'twitter_header_photo_1.png' , width: '80%', height: '80%'%>
+          <% end %>
+        </h1>
+      </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+      <div class="col-lg-8">
+        <div clas="row">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
 
-        <% if customer_signed_in? %>
-        <!--顧客ログイン-->
-        <a>ようこそ、<%= current_customer.family_name %><%= current_customer.first_name %>さん！</a>
-          <li>
-          <%= link_to "マイページ", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-          <%= link_to "商品一覧", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-          <%= link_to "カート", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
-          </li>
-        <% elsif owner_signed_in? %>
-        <!--管理者ログイン-->
-          <li>
-          <%= link_to "商品一覧", admin_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-          <%= link_to "会員一覧", admin_customers_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-          <%= link_to "注文履歴一覧", admin_orders_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-          <%= link_to "ジャンル一覧", admin_genres_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_owner_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
-          </li>
-        <% else %>
-          <!--ログイン前-->
-          <li>
-            <%= link_to "About", about_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-            <%= link_to "商品一覧", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_customer_registration_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_customer_session_path,class: 'btn btn-sm btn-outline-dark m-3' %>
-          </li>
-        <% end %>
+              <% if customer_signed_in? %>
+              <!--顧客ログイン-->
+              <a>ようこそ、<%= current_customer.family_name %><%= current_customer.first_name %>さん！</a>
+                <li>
+                <%= link_to "マイページ", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                <%= link_to "商品一覧", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                <%= link_to "カート", customer_cart_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
+                </li>
+              <% elsif owner_signed_in? %>
+              <!--管理者ログイン-->
+                <li>
+                <%= link_to "商品一覧", admin_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                <%= link_to "会員一覧", admin_customers_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                <%= link_to "注文履歴一覧", admin_orders_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                <%= link_to "ジャンル一覧", admin_genres_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_owner_session_path, method: :delete,class: 'btn btn-sm btn-outline-dark m-3'  %>
+                </li>
+              <% else %>
+                <!--ログイン前-->
+                <li>
+                  <%= link_to "About", about_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                  <%= link_to "商品一覧", customer_items_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                  <%= link_to "新規登録", new_customer_registration_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                <li>
+                  <%= link_to "ログイン", new_customer_session_path,class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
 
+        <div clas="row">
+          <div class="col-lg-4 float-right">
+            <div class=" border">
+            <a class="text-secondary">Search</a>
+            <i class="fa-solid fa-magnifying-glass fa-pull-right" style="color: royalblue;"></i></div>
+          </div>
+        </div>
 
-      </ul>
+      </div>
+
     </div>
   </div>
 </nav>

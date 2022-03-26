@@ -1,21 +1,26 @@
 <div class="container">
-    <div class="row">
-    <div class="col-2"></div>
-        <div class="col-10">
-          <h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2>
-          <div class="d-inline-flex">
+    <div class="row center-block py-5">
+        <div class="col-lg-10">
+          <div class="row"><h2><strong>商品一覧</strong>(全<%= @items.count %>件)</h2></div>
+
+          <div class="row center-block">
             <% @items.each do |item| %>
-              <div class="col-4">
-                <%= link_to customer_item_path(item.id) do %>
-                  <% if item.item_image.attached? %>
-                    <%= image_tag item.item_image, size: "180x180" %>
-                  <% else %>
-                    <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "180x180" %>
-                  <% end %>
-                <% end %>
-                <%= item.name %></br>
-                <p>¥<%= item.add_tax_price.to_s(:delimited) %>(税込)</p>
-              </div>
+              <% if item.is_sale_status == true %>
+                <div class="col-lg-3">
+                  <div class="row">
+                    <%= link_to customer_item_path(item.id) do %>
+                      <% if item.item_image.attached? %>
+                        <%= image_tag item.item_image, size: "180x180" %>
+                      <% else %>
+                        <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "180x180" %>
+                      <% end %>
+                    <% end %>
+                    <p><%= item.name %></br>
+                    ¥<%= item.add_tax_price.to_s(:delimited) %>(税込)</p>
+                  </div>
+                </div>
+              <% else %>
+              <% end %>
             <% end %>
           </div>
         </div>

@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="row mx-5">
+  <div class="row mx-5 py-5">
 
     <div class="col-md-8 offset-md-1">
       <div class="d-flex">
         <div class="image">
           <% if @item.item_image.attached? %>
-            <%= image_tag @item.item_image, size: "300x200" %>
+            <%= image_tag @item.item_image, size: "300x300" %>
           <% else %>
-            <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "300x200" %>
+            <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "300x300" %>
           <% end %>
         </div>
-        <div class="discription ml-3">
+        <div class="discription ml-3 py-5">
           <div class="h3"><%= @item.name %></div>
           <div class><%= @item.introduction %></div>
           <div class="mt-5">
