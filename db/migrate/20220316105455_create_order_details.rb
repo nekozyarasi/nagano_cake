@@ -1,7 +1,7 @@
 class CreateOrderDetails < ActiveRecord::Migration[6.1]
   def change
     create_table :order_details do |t|
-      
+
       # 注文ID
       t.integer :order_id
       # 商品ID
@@ -9,7 +9,7 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       # 数量
       t.integer :quantity
       # 製作ステータス
-      t.integer :production_status
+      t.integer :production_status, null: false, default: 0
 
       t.timestamps
     end

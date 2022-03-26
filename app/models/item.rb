@@ -4,6 +4,10 @@ class Item < ApplicationRecord
    has_many :cart_items, dependent: :destroy
    has_many :orders, through: :order_details
    has_many :order_details
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
 
     def add_tax_price
         (self.price * 1.08).round

@@ -15,7 +15,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
   end
 
   def show
@@ -23,6 +23,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+     @item = Item.find(params[:id])
   end
 
   def update
@@ -38,7 +39,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(:name, :item_image, :introduction,
+    params.require(:item).permit(:name, :item_image, :introduction,
        :genre_id, :price, :is_sale_status)
   end
 
