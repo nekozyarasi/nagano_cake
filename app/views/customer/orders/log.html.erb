@@ -34,8 +34,9 @@
 
       <div>
         <label class="font-weight-bold">支払方法</label>
-          <% payment_eg = Order.payments.key(@order.payment) %>
-          <%= Order.payments_i18n[payment_eg] %>
+          <%= @order.payment_i18n %>
+          <%# payment_eg = Order.payments.key(@order.payment) %>
+          <%#= Order.payments_i18n[payment_eg] %>
       </div>
 
       <div>
@@ -56,11 +57,11 @@
           </tr>
           <tr>
             <td>商品合計</td>
-            <td><%= @total %></td>
+            <td><%= @total_price %></td>
           </tr>
           <tr>
             <td>請求金額</td>
-            <td><%= @total_price %></td>
+            <td><%= @total_payment %></td>
           </tr>
         </tbody>
       </table>
