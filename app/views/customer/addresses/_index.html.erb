@@ -1,0 +1,29 @@
+<table class ="table table-bordered">
+  <thead class = "thead-light">
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th colspan ="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% addresses.each do |address| %>
+      <tr>
+        <td><%= address.post %></td>
+        <td><%= address.address %></td>
+        <td><%= address.name %></td>
+        <td>
+          <%= link_to edit_customer_address_path(address.id),data: {"turbolinks" => false} do %>
+            <button class ="btn btn-success">編集</button>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to customer_address_path(address.id), data: {"turbolinks" => false}, method: :delete, data: { confirm: '本当に消しますか？' } do %>
+            <button class = "btn btn-danger">削除</button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
