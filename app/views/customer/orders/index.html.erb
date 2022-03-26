@@ -22,9 +22,9 @@
                 <%= order.name %>
             </td>
             <td>
-            <% order.order_details.each do |order_item| %>
-                <%= order_detail.item.name %><br>
-            <% end %>
+            <%# order.order_details.each do |order_detail| %>
+                <%#= order_detail.item.name %><br>
+            <%# end %>
            </td>
             <td><%= order.total_due %>円</td>
             <td><%= order.order_status %></td>
