@@ -11,7 +11,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       # 配送先氏名
       t.string :name
       # 送料
-      t.integer :postage
+      t.integer :postage, default: 800, null: false
       # 請求額
       t.integer :total_due
       # 支払方法

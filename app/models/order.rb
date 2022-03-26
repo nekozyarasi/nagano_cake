@@ -1,16 +1,17 @@
 class Order < ApplicationRecord
 
-  belongs_to :customer
-  has_many :order_details, dependent: :destroy
-  has_one_attached :item_image
+    belongs_to :customer
+    has_many :order_details, dependent: :destroy
 
-  validates :post, :address, :name, :postage, :total_due, :payment, :order_status, presence: true
+    has_one_attached :item_image
 
-  enum payment: {credit_card:0, transfer:1}
-  enum order_status: {waiting_for_deposit:0, payment_confirmation:1, production:2, ready_to_ship:3, sent:4}
+    validates :post, :address, :name, :postage, :payment, :order_status,  presence: true
 
-  def total_count
-    self.orderDetails.all.sum(:count)
-  end
+    enum payment: {credit_card:0, transfer:1}
+    enum order_status: {入金待ち:0, 入金確認:1, 製作中:2, 発送準備中:3, 発送済み:4}
+
+    def total_count
+      self.orderDetails.all.sum(:count)
+    end
 
 end
