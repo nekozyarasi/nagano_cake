@@ -1,20 +1,20 @@
 class Customer::OrdersController < ApplicationController
-  
+
   before_action :authenticate_customer!
-  
+
   def new
     @order = Order.new
   end
-  
+
   def log
     @cart_items = current_customer.cart_items.all
     @postage = 800
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @total_price = @total + @postage
-    
+
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    
+
     if params[:order][:order_addresses] == "0"
       @order.post = current_customer.post
       @order.address = current_customer.address
@@ -41,7 +41,7 @@ class Customer::OrdersController < ApplicationController
       render :new
     end
   end
-  
+
   def create
     @cart_items = current_customer.cart_items.all
     @postage = 800
@@ -50,13 +50,13 @@ class Customer::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @customer = Customer.find(current_customer.id)
-    
+
     if @order.save
       redirect_to customer_orders_thanks_path
     else
       render :new
     end
-    
+
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
@@ -68,24 +68,24 @@ class Customer::OrdersController < ApplicationController
     end
       @cart_items.destroy_all
   end
-  
+
   def thanks
   end
-  
+
   def index
     @orders = current_customer.orders.all
   end
-  
+
   def show
     @order = current_customer.orders.find(params[:id])
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:customer_id, :total_due, :payment, :post, :address, :name, :postage)
   end
-  
+
 #   def new
 #     @order = Order.new
 #     @order.customer_id = current_customer.id
