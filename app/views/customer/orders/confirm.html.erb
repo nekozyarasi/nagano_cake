@@ -1,0 +1,72 @@
+<div class = "container">
+   <div class = "row my-3">
+     <div class = "col-4 text-center">
+       <h3>注文情報確認</h3>
+     </div>
+   </div>
+   <div class = "row">
+     <div class = "col-md-6">
+       <table class = "table table-bordered">
+         <thead class = "thead-light">
+           <tr>
+             <th>商品名</th>
+             <th>単価(税込)</th>
+             <th>数量</th>
+             <th>小計</th>
+           </tr>
+         </thead>
+         <tbody>
+           <% @cart_items.each do |cart_item| %>
+           <tr>
+             <td><%= image_tag cart_item.item.get_item_image("100x100") %><%= cart_item.item.name %></td>
+             <td><%= cart_item.item.with_tax_price %></td>
+             <td><%= cart_item.quantity %></td>
+             <td><%= (cart_item.item.with_tax_price*cart_item.quantity) %></td>
+           </tr>
+           <% end %>
+         </tbody>
+       </table>
+     </div>
+     <div class ="col-md-4">
+       <table class = "table table-bordered">
+         <tr>
+           <th>送料</th>
+           <td><%= @postage %>  </td>
+         </tr>
+         <tr>
+           <th>商品合計</th>
+           <td><%= @total %></td>
+         </tr>
+         <tr>
+           <th>請求金額</th>
+           <td><%= @total_amount %></td>
+         </tr>
+       </table>
+     </div>
+    </div>
+    <div class = "row">
+      <div class = "col-md-4">
+       <table class = "table table-borderless">
+         <tr>
+           <th>支払方法</th>
+           <td><%#= @order.payment_i18n %></td>
+         </tr>
+         <tr>
+           <th>お届け先</th>
+           <td><%= "〒#{@order.post} #{@order.address}" %><br><%= "#{@order.name}" %></td>
+         </tr>
+       </table>
+     </div>
+    </div>
+    <div class = "row justify-content-center">
+      <%= form_with model: @order, url: customer_orders_path, local: true do |f| %>
+        <%= f.hidden_field :address,value: @order.address %>
+		    <%= f.hidden_field :post,value: @order.post %>
+		    <%= f.hidden_field :name,value: @order.name %>
+        <%= f.hidden_field :payment,value: @order.payment %>
+        <%= f.hidden_field :total_due,value: @order.total_due %>
+        <%= f.hidden_field :order_status,value: @order.order_status, checked: "入金待ち" %>
+        <%= f.submit "注文を確定する", class: "btn btn-success" %>
+      <% end %>
+    </div>
+ </div>

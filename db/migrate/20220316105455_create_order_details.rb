@@ -8,7 +8,9 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       t.integer :item_id
       # 数量
       t.integer :quantity
-      # 製作ステータス
+      # 個数
+      t.integer :tex_excluded
+      #税込み価格
       t.integer :production_status, null: false, default: 0
 
       t.timestamps

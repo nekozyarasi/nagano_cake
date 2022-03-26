@@ -49,6 +49,8 @@ Rails.application.routes.draw do
     # get 'orders/thanks'
     # get 'orders/index'
     # get 'orders/show'
+    post "orders/comfirm" => "orders#confirm", as: "confirm"
+    get "orders/complete" => "orders#complete", as: "complete"
     resources :orders, only: [:index, :create, :log, :new, :show, :thanks]
     # get 'ships/index'
     # get 'ships/create'
