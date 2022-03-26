@@ -9,8 +9,4 @@ class CartItem < ApplicationRecord
     item.add_tax_price * quantity
   end
 
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> origin/develop

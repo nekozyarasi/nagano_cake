@@ -7,11 +7,7 @@ class Customer < ApplicationRecord
 
    has_many :cart_items, dependent: :destroy
    has_many :orders, dependent: :destroy
-<<<<<<< HEAD
    has_many :addresses, dependent: :destroy
-=======
-   has_many :ships, dependent: :destroy
->>>>>>> origin/develop
 
   validates :first_name, presence: true
   validates :family_name, presence: true

@@ -44,14 +44,15 @@ class Customer::OrdersController < ApplicationController
 
   def create
     @cart_items = current_customer.cart_items.all
-    @postage = 800
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @postage = 800
     @total_price = @total + @postage
+
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @customer = Customer.find(current_customer.id)
-
-    if @order.save
+    @total_due =  @total_price
+    if @order.save!
       redirect_to customer_orders_thanks_path
     else
       render :new
@@ -62,7 +63,7 @@ class Customer::OrdersController < ApplicationController
       @order_detail = OrderDetail.new
       @order_detail.item_id = cart_item.item_id
       @order_detail.order_id = @order.id
-      @order_detail.price = cart_item.item.price
+      # @order_detail.price = cart_item.item.price
       @order_detail.quantity = cart_item.quantity
       @order_detail.save
     end

@@ -27,11 +27,7 @@
             <% else %>
               <%= image_tag 'no_image.jpg', alt: "スイーツ", size: "100x80" %>
             <% end %>
-<<<<<<< HEAD
-            <%# image_tag cart_item.item.item_image, size: "100x80" %> 
-=======
             <%# image_tag cart_item.item.item_image, size: "100x80" %>
->>>>>>> origin/develop
             <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
