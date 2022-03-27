@@ -7,7 +7,7 @@ class Address < ApplicationRecord
     validates :name
   end
   
-    def address_display
+  def address_display
     '〒' + post + ' ' + address + ' ' + name
   end
   
