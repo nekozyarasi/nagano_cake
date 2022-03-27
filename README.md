@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * ...
 [ER図.pdf](ER図.pdf)
+[DWCCOMMIT_設計課題_アプリケーション詳細設計_回答用 のコピー - ルーティング.pdf](https://github.com/nekozyarasi/nagano_cake/files/8357620/DWCCOMMIT_._._.-.pdf)
