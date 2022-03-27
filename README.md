@@ -22,4 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-[ER図.pdf](https://github.com/nekozyarasi/nagano_cake/files/8357588/ER.pdf)
+[ER図.pdf](ER図.pdf)
