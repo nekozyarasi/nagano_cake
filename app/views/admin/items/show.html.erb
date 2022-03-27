@@ -1,0 +1,68 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-lg-8 mx-auto my-3">
+
+			<% provide(:title, "商品詳細") %>
+
+			<div class="row">
+        <div class="col-lg-6 text-center ">
+          <h2 class="head-line title_h2 text-center admin_product_index bg-secondary text-white rounded">商品詳細</h2>
+        </div>
+      </div>
+
+			<div class="row">
+
+				<div class="col-5">
+					<div id="img_field">
+				  	<% if @item.item_image.attached? %>
+			      	<%= image_tag @item.item_image, size: "300x300" %>
+			      <% else %>
+			      	<%= image_tag 'no_image', size: "300x300" %>
+			      <% end %>
+				  </div>
+				</div>
+
+				<div class="col-7">
+			      <div class="col-text-center">
+				      <div class="field">
+								<p>
+									商品名　　　　　<%= @item.name %>
+								</p>
+				      </div><br>
+				      <div class="field">
+								<p>
+									商品説明　　　　<%= @item.introduction %>
+								</p><br>
+				      </div>
+				      <div class="field">
+								<p>
+									ジャンル　　　　<%= @item.genre.name %>
+								</p><br>
+				      </div>
+				      <div class="field">
+								<p>
+								  税込価格　　　　<%= @item.add_tax_price.to_s(:delimited) %>
+				        								(<%= @item.price.to_s(:delimited) %>) 円<br>
+									(税抜価格)
+								</p><br>
+				      </div>
+				      <div class="field">
+								<p>
+									販売ステータス
+					        <% if @item.is_sale_status == true %>
+										　<i class="fas fa-bullseye red text-success"></i>販売中
+									<% elsif @item.is_sale_status == false %>
+										　<i class="fas fa-bullseye blue text-secondary"></i>販売停止中
+									<% end %>
+								</p>
+				      </div>
+					  <div class="actions col-xs-9">
+				      		<%= link_to "編集する", edit_admin_item_path(@item), data: {"turbolinks" => false}, class: "glyphicon glyphicon-pencil btn btn-success pull-right" %>
+			      	  </div>
+			      	</div>
+			    </div>
+			</div>
+
+    </div>
+  </div>
+</div>
