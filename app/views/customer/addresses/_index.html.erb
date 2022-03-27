@@ -10,10 +10,10 @@
   <tbody>
     <% addresses.each do |address| %>
       <tr>
-        <td><%= address.post %></td>
-        <td><%= address.address %></td>
-        <td><%= address.name %></td>
-        <td>
+        <td class="align-middle"><%= address.post %></td>
+        <td class="align-middle"><%= address.address %></td>
+        <td class="align-middle"><%= address.name %></td>
+        <td class="align-middle">
           <%= link_to edit_customer_address_path(address.id),data: {"turbolinks" => false} do %>
             <button class ="btn btn-success">編集</button>
           <% end %>
