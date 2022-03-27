@@ -34,16 +34,12 @@
       <div>
         <label class="font-weight-bold">支払方法</label>
           <%= @order.payment_i18n %>
-          <%# payment_eg = Order.payments.key(@order.payment) %>
-          <%#= Order.payments_i18n[payment_eg] %>
       </div>
 
       <div>
         <label class="font-weight-bold">お届け先</label>
-          <!--<p>-->
             〒 <%= @order.post %> <%= @order.address %></br>
                <p class="ml-5"><%= @order.name %></p>
-          <!--</p>-->
       </div>
     </div>
 

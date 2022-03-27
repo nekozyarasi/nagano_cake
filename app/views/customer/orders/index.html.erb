@@ -32,8 +32,6 @@
         　</td>
           <td class="align-middle text-center">
             <%= order.order_status %>
-            <%# order_status_eg = Order.order_statuses.key(order.order_status) %>
-            <%#= Order.order_statuses_i18n[order_status_eg] %>
           </td>
           <td class="align-middle text-center">
             <%= link_to '表示する', customer_order_path(order), class: "btn btn-primary btn-sm " %>
