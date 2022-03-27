@@ -20,7 +20,7 @@
     <div class="col-10 ml-auto mt-3">
       <h2>新着商品</h2>
       <div class="d-inline-flex">
-        <% @items.last(4).each do |item| %>
+        <% @items.last(4).reverse.each do |item| %>
           <div class="col-3">
             <%= link_to customer_item_path(item.id) do %>
               <% if item.item_image.attached? %>
