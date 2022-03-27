@@ -9,7 +9,7 @@ class Customer::AddressesController < ApplicationController
     @address.customer_id = current_customer.id
     if @address.save
        flash[:notice] = "新しい配送先を登録しました"
-       redirect_to request.referer
+       redirect_to customer_addresses_path
     else
       @customer = current_customer
       @addresses = @customer.address.all
